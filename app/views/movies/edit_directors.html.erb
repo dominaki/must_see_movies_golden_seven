@@ -1,2 +1,20 @@
-<h1>HELLO<h1>
-Test
+<h1>Edit Director</h1>
+
+<form action="/update_director/<%= @director.id %>">
+  Name:
+  <input name="name" type="text" value="<%= @director.name %>">
+
+ Image:
+  <input name="image_url" type="text" value="<%= @director.image_url %>">
+
+ DOB:
+ <input name="dob" type="text" value="<%= @director.dob %>">
+
+ BIO:
+ <input name="bio"  type="text" value="<%= @director.bio %>">
+
+
+  <button>Update Director</button>
+</form>
+
+<a href="/directors/<%= @director.id %>">Cancel and Return</a>

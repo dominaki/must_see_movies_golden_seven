@@ -61,17 +61,20 @@ def create_row_actors
   
 
  def edit_directors
-    render("edit_directors.html.erb")
+    @director = Director.find(params["id"])
 
   end
 
-def update_photo
-	d = Photo.find(params["id"])
-	d.name = params["name"]
-    p.source = params["the_source"]
-	p.save
+def update_director
+	  d = Director.find(params["id"])
+    d.name = params["name"]
+    d.bio = params["bio"]
+    d.dob = params["dob"] 
+    d.image_url = params["image_url"]
+    d.save
+    
+    redirect_to("/directors")
 
-	redirect_to("http://localhost:3000/photos")
 
 end
 
