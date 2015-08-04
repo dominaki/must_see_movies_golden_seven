@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get("/directors/:id/edit_director", { :controller => "movies", :action => "edit_directors"})
   get("/update_director/:id", { :controller => "movies", :action => "update_director"})
 
-  get("/directors/delete_director/:id", { :controller => "movies", :action => "destroy"})
+  get("/directors/delete_director/:id", { :controller => "movies", :action => "destroy_director"})
 
   get("/directors/:id", { :controller => "movies", :action => "show_directors"})
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get("/actors/:id/edit_actor", { :controller => "movies", :action => "edit_actors"})
   get("/update_actor/:id", { :controller => "movies", :action => "update_actor"})
 
-  get("/actors/delete_actor/:id", { :controller => "movies", :action => "destroy"})
+  get("/actors/delete_actor/:id", { :controller => "movies", :action => "destroy_actor"})
 
   get("/actors/:id", { :controller => "movies", :action => "show_actors"})
 
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get("/movies/:id/edit_movie", { :controller => "movies", :action => "edit_movies"})
   get("/update_movie/:id", { :controller => "movies", :action => "update_movie"})
 
-  get("/movies/delete_movie/:id", { :controller => "movies", :action => "destroy"})
+  get("/movies/delete_movie/:id", { :controller => "movies", :action => "destroy_movie"})
 
   get("/movies/:id", { :controller => "movies", :action => "show_movies"})
 end

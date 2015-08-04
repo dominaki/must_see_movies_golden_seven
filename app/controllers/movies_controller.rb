@@ -55,12 +55,13 @@ def update_director
 
 end
 
-def destroy
+def destroy_director
     @director = Director.find(params["id"])
 
     @director.destroy
 
     redirect_to("http://localhost:3000/directors")
+
   end
 
 
@@ -113,7 +114,7 @@ def update_actor
 
 end
 
-def destroy
+def destroy_actor
     @actor = Actor.find(params["id"])
 
     @actor.destroy
@@ -173,7 +174,7 @@ def update_movie
 
 end
 
-def destroy
+def destroy_movie
     @movie = Movie.find(params["id"])
 
     @movie.destroy
