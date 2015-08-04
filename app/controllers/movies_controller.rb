@@ -122,9 +122,66 @@ def destroy
   end
 
   ###ACTIONS FOR MOVIES
-def index_movie
-  @list_of_movies = Movies.all
+def index_movies
+  @list_of_movies = Movie.all
 
 end
+
+
+def create_movie
+
+    m = Movie.new
+    m.title = params["title"]
+    m.year = params["year"]
+    m.duration = params["duration"]
+    m.description = params["description"]
+    m.image_url = params["image_url"]
+    m.save
+    
+    redirect_to("/movies")
+
+  end
+
+
+def new_movie
+  render("new_movie.html.erb")
+end
+
+
+def show_movies
+
+  @movie = Movie.find(params["id"])
+  render("show_movies.html.erb")
+end
+  
+ def edit_movies
+    @movie = Movie.find(params["id"])
+
+  end
+
+def update_movie
+    m = Movie.find(params["id"])
+    m.title = params["title"]
+    m.year = params["year"]
+    m.duration = params["duration"] 
+    m.image_url = params["image_url"]
+    m.description = params["description"]
+    m.save
+    
+    redirect_to("/movies")
+
+
+end
+
+def destroy
+    @movie = Movie.find(params["id"])
+
+    @movie.destroy
+
+    redirect_to("http://localhost:3000/movies")
+  end
+
+
+
  end
 
