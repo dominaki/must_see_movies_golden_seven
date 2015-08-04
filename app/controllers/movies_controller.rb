@@ -5,19 +5,13 @@ def home
 	render("home.html.erb")
 end
 
+##actions for directors
 
 def index_directors
     @list_of_directors = Director.all
   end
 
-def index_actors
-	@list_of_actors = Actors.all
-end
 
-def index_movie
-	@list_of_movies = Movies.all
-
-end
 
 def create_director
 
@@ -42,24 +36,7 @@ def show_directors
 	@director = Director.find(params["id"])
 	render("show_directors.html.erb")
 end
-
-def create_row_actors
-
-    p = Actor.new
-    p.name = params["name"]
-    p.bio = params["bio"]
-    p.dob = params["dob"]
-    p.image_url = parmas["image_url"]
-    p.save
-
-    
-    redirect_to("http://localhost:3000/actors")
-
-  end
-
-
   
-
  def edit_directors
     @director = Director.find(params["id"])
 
@@ -87,5 +64,67 @@ def destroy
   end
 
 
+## ACTINOS FOR ACTORS
+
+def index_actors
+  @list_of_actors = Actor.all
+end
+
+def create_actor
+
+    a = Actor.new
+    a.name = params["name"]
+    a.bio = params["bio"]
+    a.dob = params["dob"]
+    a.image_url = params["image_url"]
+    a.save
+    
+    redirect_to("/actors")
+
+  end
+
+
+def new_actor
+  render("new_actor.html.erb")
+end
+##Create actions for Directors, Actors & Movies
+
+def show_actors
+  
+  @actor = Actor.find(params["id"])
+  render("show_actors.html.erb")
+end
+  
+ def edit_actors
+    @actor = Actor.find(params["id"])
+
+  end
+
+def update_actor
+    a = Actor.find(params["id"])
+    a.name = params["name"]
+    a.bio = params["bio"]
+    a.dob = params["dob"] 
+    a .image_url = params["image_url"]
+    a.save
+    
+    redirect_to("/actors")
+
+
+end
+
+def destroy
+    @actor = Actor.find(params["id"])
+
+    @actor.destroy
+
+    redirect_to("http://localhost:3000/actors")
+  end
+
+  ###ACTIONS FOR MOVIES
+def index_movie
+  @list_of_movies = Movies.all
+
+end
  end
 
